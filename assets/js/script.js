@@ -30,3 +30,50 @@ btn_sidebar.forEach((item, index) => {
     });
 
 });
+
+const btn_toggle = document.getElementById('btn_toggle');
+const menu_over = document.getElementById('menu_over');
+const menu_sidebar = document.getElementById('menu_sidebar');
+const close_menu_full = document.getElementById('close_menu_full');
+
+btn_toggle.addEventListener('click', function(){
+
+    menu_over.classList.add('menu_over_active');
+    setTimeout(function(){
+        menu_sidebar.classList.add('menu_sidebar_open');
+
+    }, 100)
+
+});
+
+close_menu_full.addEventListener('click', function(){
+
+    menu_sidebar.classList.remove('menu_sidebar_open');
+    
+    setTimeout(function(){
+        menu_over.classList.remove('menu_over_active');
+        menu_over.classList.add('close_over_menu');
+    }, 100);
+
+    setTimeout(function(){
+        menu_over.classList.remove('close_over_menu');
+
+    }, 200);
+
+});
+
+menu_over.addEventListener('click', function(){
+
+    menu_sidebar.classList.remove('menu_sidebar_open');
+    
+    setTimeout(function(){
+        menu_over.classList.remove('menu_over_active');
+        menu_over.classList.add('close_over_menu');
+    }, 100);
+
+    setTimeout(function(){
+        menu_over.classList.remove('close_over_menu');
+
+    }, 200);
+
+});
